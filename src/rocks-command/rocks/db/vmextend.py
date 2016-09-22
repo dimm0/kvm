@@ -81,7 +81,7 @@ def getPhysBridgedDevicefromVnode(self, node):
 	# now find the physical device name corresponding to the subnets
 	# found in the previous query (Network table)
 	networkvirtual = sqlalchemy.orm.aliased(Network)
-	devices = s.query(Network.device, Network.vlanID, networkvirtual.mac, Network.options, Network.module).filter(
+	devices = s.query(Network.device, Network.vlanID, networkvirtual.mac, Network.options, Network.module, networkvirtual.ip).filter(
 			Network.node == node.vm_defs.physNode,
 			networkvirtual.node == node,
 			Network.subnet_ID == networkvirtual.subnet_ID,

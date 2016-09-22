@@ -194,6 +194,9 @@ class Command(rocks.commands.report.host.command):
 			returnxml.append("    <interface type='bridge'>")
 			returnxml.append("      <source bridge='%s'/>" % bridged_inter["device"])
 			returnxml.append("      <mac address='%s'/>" % bridged_inter["mac"])
+			returnxml.append("      <filterref filter='clean-traffic'>")
+			returnxml.append("        <parameter name='IP' value='%s'/>" % bridged_inter["ip"])
+			returnxml.append("      </filterref>")
 			if bridged_inter["module"] == 'ovs-bridge':
 				returnxml.append("      <virtualport type='openvswitch'/>")
 			else:
