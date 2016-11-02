@@ -1,2 +1,2 @@
 NAME	= rocks-command-kvm
-RELEASE	= 3.1
+RELEASE	= 3.2
